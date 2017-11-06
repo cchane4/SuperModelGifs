@@ -1,28 +1,24 @@
 
-
-    // an array of themed buttons created here
+// an array of themed buttons created here
 var topics = ['bikram', 'yoga', 'vegan', 'vegetarian', 'nutrition', 'exercise', 'pilates', 'calisthenics', 'ashtanga', 'vinyasa'];
 
 function createButtons() {
     $('#buttonDiv').empty();
-
-
     for (var i = 0; i < topics.length; i++) {
-        var labelButton = $('<button>');
-        labelButton.addClass('health');
-        labelButton.attr('type', 'button');
-        labelButton.attr('data-name', topics[i]);
-        labelButton.text(topics[i]);
+        var buttons = $('<button>');
+        buttons.addClass('build'); //added a class to the dynamically created button for animals
+        buttons.attr('type', 'button'); //set the button type attribute
+        buttons.attr('data-name', topics[i]); //added a data- attribute for items in array
+        buttons.text(topics[i]);
         $('#buttonDiv').append(buttons);
     }
 }
 
 createButtons();
-
 // when the user pushes a button, gifs are generated on the webpage
-$(document).on('click', '.health', function() {
+$(document).on('click', '.build', function() {
     var e = $(this).data("name");
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + e + "&api_key=dc6zaTOxFJmzC&limit=10&rating=g&pg";
+    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + e + "&api_key=dc6zaTOxFJmzC&limit=10";
     $.ajax({
             url: queryURL,
             method: 'GET'
@@ -34,22 +30,25 @@ $(document).on('click', '.health', function() {
                 var gifImage = $('<img>');
                 var rating = results[i].rating;
                 var ratingDisplay = $('<p>').text("Rating: " + rating);
-
                 gifImage.attr('src', results[i].images.fixed_height_still.url);
                 gifImage.addClass('gif');
                 gifImage.attr('data-still', results[i].images.fixed_height_still.url);
                 gifImage.attr('data-animate', results[i].images.fixed_height.url);
-                gifImage.attr('data-state', 'still')
-                gifDiv.append(gifImage);
+                gifImage.attr('data-state', 'still');
                 gifDiv.append(ratingDisplay);
+                gifDiv.append(gifImage);
                 $('#gifSpace').prepend(gifDiv);
-             }
-           });
-      });
+
+            }
+
+        });
+
+});
 
 $(document).on('click', '.gif', function() {
-    //Loading the clicked Gif's data state into a var called state
+
     var state = $(this).attr('data-state');
+
     //The if then statement to allow animation and pausing the gif
     if (state == 'still') {
         $(this).attr('src', $(this).data('animate'));
@@ -58,13 +57,12 @@ $(document).on('click', '.gif', function() {
         $(this).attr('src', $(this).data('still'));
         $(this).attr('data-state', 'still');
     }
+});
 
-	});
-
+// the user can create their own buttons that will also generate new gifs
 $("#addTodo").on("click", function() {
     var todoTask = $('#todo').val().trim();
     topics.push(todoTask);
     createButtons();
     return false
 });
-

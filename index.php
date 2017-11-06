@@ -1,1 +1,1 @@
-<?php include_once("gif.html"); ?>
+<?php include_once("index.html"); ?>
