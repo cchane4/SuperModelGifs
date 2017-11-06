@@ -4,7 +4,7 @@
 var topics = ['bikram', 'yoga', 'vegan', 'vegetarian', 'nutrition', 'exercise', 'pilates', 'calisthenics', 'ashtanga', 'vinyasa'];
 
 function createButtons() {
-    $('#buttonDiv').empty();
+    $('#buttonPopulate').empty();
 
 
     for (var i = 0; i < topics.length; i++) {
@@ -13,7 +13,7 @@ function createButtons() {
         labelButton.attr('type', 'button');
         labelButton.attr('data-name', topics[i]);
         labelButton.text(topics[i]);
-        $('#buttonDiv').append(buttons);
+        $('#buttonPopulate').append(buttons);
     }
 }
 
@@ -34,7 +34,6 @@ $(document).on('click', '.health', function() {
                 var gifImage = $('<img>');
                 var rating = results[i].rating;
                 var ratingDisplay = $('<p>').text("Rating: " + rating);
-
                 gifImage.attr('src', results[i].images.fixed_height_still.url);
                 gifImage.addClass('gif');
                 gifImage.attr('data-still', results[i].images.fixed_height_still.url);
@@ -42,7 +41,7 @@ $(document).on('click', '.health', function() {
                 gifImage.attr('data-state', 'still')
                 gifDiv.append(gifImage);
                 gifDiv.append(ratingDisplay);
-                $('#gifSpace').prepend(gifDiv);
+                $('#gifPopulate').prepend(gifDiv);
              }
            });
       });
@@ -61,9 +60,9 @@ $(document).on('click', '.gif', function() {
 
 	});
 
-$("#addTodo").on("click", function() {
-    var todoTask = $('#todo').val().trim();
-    topics.push(todoTask);
+$("#addenterText").on("click", function() {
+    var enterTextTask = $('#enterText').val().trim();
+    topics.push(enterTextTask);
     createButtons();
     return false
 });

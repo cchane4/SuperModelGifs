@@ -1,16 +1,16 @@
 
 // an array of themed buttons created here
-var topics = ['bikram', 'yoga', 'vegan', 'vegetarian', 'nutrition', 'exercise', 'pilates', 'calisthenics', 'ashtanga', 'vinyasa'];
+var topics = ['naomi campbell', 'cindy crawford ', 'christy turlington', 'linda evangelista', 'claudia schiffer'];
 
 function createButtons() {
-    $('#buttonDiv').empty();
+    $('#buttonPopulate').empty();
     for (var i = 0; i < topics.length; i++) {
         var buttons = $('<button>');
         buttons.addClass('build'); //added a class to the dynamically created button for animals
         buttons.attr('type', 'button'); //set the button type attribute
         buttons.attr('data-name', topics[i]); //added a data- attribute for items in array
         buttons.text(topics[i]);
-        $('#buttonDiv').append(buttons);
+        $('#buttonPopulate').append(buttons);
     }
 }
 
@@ -37,7 +37,7 @@ $(document).on('click', '.build', function() {
                 gifImage.attr('data-state', 'still');
                 gifDiv.append(ratingDisplay);
                 gifDiv.append(gifImage);
-                $('#gifSpace').prepend(gifDiv);
+                $('#gifPopulate').prepend(gifDiv);
 
             }
 
@@ -60,9 +60,9 @@ $(document).on('click', '.gif', function() {
 });
 
 // the user can create their own buttons that will also generate new gifs
-$("#addTodo").on("click", function() {
-    var todoTask = $('#todo').val().trim();
-    topics.push(todoTask);
+$("#addenterText").on("click", function() {
+    var enterTextTask = $('#enterText').val().trim();
+    topics.push(enterTextTask);
     createButtons();
     return false
 });
