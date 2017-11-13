@@ -11,7 +11,7 @@ function createButtons() {
         buttons.attr('data-name', topics[i]); //added a data- attribute for items in array
         buttons.text(topics[i]);
         $('#buttonPopulate').append(buttons);
-    }
+    } 
 }
 
 createButtons();
@@ -50,7 +50,7 @@ $(document).on('click', '.gif', function() {
     var state = $(this).attr('data-state');
 
     //The if then statement to allow animation and pausing the gif
-    if (state == 'still') {
+    if (state ==='still') {
         $(this).attr('src', $(this).data('animate'));
         $(this).attr('data-state', 'animate');
     } else {
@@ -64,5 +64,5 @@ $("#addenterText").on("click", function() {
     var enterTextTask = $('#enterText').val().trim();
     topics.push(enterTextTask);
     createButtons();
-    return false
+    return false 
 });

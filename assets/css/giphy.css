@@ -1,0 +1,21 @@
+#textForm { 
+ float: right;
+ display: inline-block;
+position: relative;
+clear:both;
+}
+
+#buttonPopulate{ 
+float: left;
+display: flex;
+flex-wrap: wrap;   
+max-width: 600px;
+margin-bottom: 5px;
+/*clear:both;*/
+} 
+
+#gifPopulate{ 
+display: block;
+position: relative; 
+clear:left;
+} 
