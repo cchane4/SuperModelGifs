@@ -15,7 +15,7 @@ function createButtons() {
 }
 
 createButtons();
-// when the user pushes a button, gifs are generated on the webpage
+// when the user pushes a button, the Populating container is emptied and gifs are generated on the webpage
 $(document).on('click', '.build', function() {
     $('#gifPopulate').empty();
     var e = $(this).data("name");
@@ -46,10 +46,9 @@ $(document).on('click', '.build', function() {
 
 });
 
+// if the user clicks on the gif it animates, if they click again the gif pauses. 
 $(document).on('click', '.gif', function() {
-
     var state = $(this).attr('data-state');
-
     //The if then statement to allow animation and pausing the gif
     if (state === 'still') {
         $(this).attr('src', $(this).data('animate'));
@@ -60,7 +59,7 @@ $(document).on('click', '.gif', function() {
     }
 });
 
-// the user can create their own buttons that will also generate new gifs
+// the user can create their own buttons that will also generate new gifs with the same functionality as all other gifs (pausing/animating)
 $("#addenterText").on("click", function() {
     var enterTextTask = $('#enterText').val().trim();
     topics.push(enterTextTask);
