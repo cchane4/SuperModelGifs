@@ -11,12 +11,13 @@ function createButtons() {
         buttons.attr('data-name', topics[i]); //added a data- attribute for items in array
         buttons.text(topics[i]);
         $('#buttonPopulate').append(buttons);
-    } 
+    }
 }
 
 createButtons();
 // when the user pushes a button, gifs are generated on the webpage
 $(document).on('click', '.build', function() {
+    $('#gifPopulate').empty();
     var e = $(this).data("name");
     var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + e + "&api_key=dc6zaTOxFJmzC&limit=10";
     $.ajax({
@@ -36,7 +37,7 @@ $(document).on('click', '.build', function() {
                 gifImage.attr('data-animate', results[i].images.fixed_height.url);
                 gifImage.attr('data-state', 'still');
                 gifDiv.append(ratingDisplay);
-                gifDiv.append(gifImage);
+                gifDiv.prepend(gifImage);
                 $('#gifPopulate').prepend(gifDiv);
 
             }
@@ -50,7 +51,7 @@ $(document).on('click', '.gif', function() {
     var state = $(this).attr('data-state');
 
     //The if then statement to allow animation and pausing the gif
-    if (state ==='still') {
+    if (state === 'still') {
         $(this).attr('src', $(this).data('animate'));
         $(this).attr('data-state', 'animate');
     } else {
@@ -64,5 +65,5 @@ $("#addenterText").on("click", function() {
     var enterTextTask = $('#enterText').val().trim();
     topics.push(enterTextTask);
     createButtons();
-    return false 
+    return false
 });

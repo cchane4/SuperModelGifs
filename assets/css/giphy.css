@@ -1,4 +1,4 @@
-#textForm { 
+#textForm{ 
  float: right;
  display: inline-block;
 position: relative;
@@ -18,4 +18,16 @@ margin-bottom: 5px;
 display: block;
 position: relative; 
 clear:left;
-} 
+float: left;
+}
+
+.jumbotron{ 
+background-image: url(../images/maxresdefault.jpg);
+color: white;
+background-size: cover; 
+height: 325px;
+}
+ 
+body{ 
+background-color: white;
+}
