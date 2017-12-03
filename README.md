@@ -1,4 +1,4 @@
-# gif-assignment-
+# SupermodelGifs
 
 A GIPHY API-based GIF search app.
 
