@@ -1,11 +1,11 @@
 
 // an array of themed buttons created here
-var topics = ['naomi campbell', 'cindy crawford ', 'christy turlington', 'linda evangelista', 'claudia schiffer'];
+let topics = ['professor x', 'emma frost', 'wolverine', 'magneto', 'jean grey'];
 
-function createButtons() {
+let create_buttons = () => {
     $('#buttonPopulate').empty();
-    for (var i = 0; i < topics.length; i++) {
-        var buttons = $('<button>');
+    for (let i = 0; i < topics.length; i++) {
+        let buttons = $('<button>');
         buttons.addClass('build'); //added a class to the dynamically created button for animals
         buttons.attr('type', 'button'); //set the button type attribute
         buttons.attr('data-name', topics[i]); //added a data- attribute for items in array
@@ -14,23 +14,23 @@ function createButtons() {
     }
 }
 
-createButtons();
+create_buttons();
 // when the user pushes a button, the Populating container is emptied and gifs are generated on the webpage
 $(document).on('click', '.build', function() {
     $('#gifPopulate').empty();
-    var e = $(this).data("name");
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + e + "&api_key=dc6zaTOxFJmzC&limit=10";
+    let e = $(this).data("name");
+    let queryURL = "http://api.giphy.com/v1/gifs/search?q=" + e + "&api_key=dc6zaTOxFJmzC&limit=10";
     $.ajax({
             url: queryURL,
             method: 'GET'
         })
         .done(function(response) {
-            var results = response.data;
-            for (var i = 0; i < results.length; i++) {
-                var gifDiv = $('<div>');
-                var gifImage = $('<img>');
-                var rating = results[i].rating;
-                var ratingDisplay = $('<p>').text("Rating: " + rating);
+            let results = response.data;
+            for (let i = 0; i < results.length; i++) {
+                let gifDiv = $('<div>');
+                let gifImage = $('<img>');
+                let rating = results[i].rating;
+                let ratingDisplay = $('<p>').text("Rating: " + rating);
                 gifImage.attr('src', results[i].images.fixed_height_still.url);
                 gifImage.addClass('gif');
                 gifImage.attr('data-still', results[i].images.fixed_height_still.url);
@@ -48,7 +48,7 @@ $(document).on('click', '.build', function() {
 
 // if the user clicks on the gif it animates, if they click again the gif pauses. 
 $(document).on('click', '.gif', function() {
-    var state = $(this).attr('data-state');
+    let state = $(this).attr('data-state');
     //The if then statement to allow animation and pausing the gif
     if (state === 'still') {
         $(this).attr('src', $(this).data('animate'));
@@ -60,9 +60,9 @@ $(document).on('click', '.gif', function() {
 });
 
 // the user can create their own buttons that will also generate new gifs with the same functionality as all other gifs (pausing/animating)
-$("#addenterText").on("click", function() {
-    var enterTextTask = $('#enterText').val().trim();
+$("#addenterText").on("click",() => {
+    let enterTextTask = $('#enterText').val().trim();
     topics.push(enterTextTask);
-    createButtons();
+    create_buttons();
     return false
 });
