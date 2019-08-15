@@ -1,5 +1,5 @@
 #textForm{ 
- float: right;
+ /* float: right; */
  display: inline-block;
 position: relative;
 clear:both;
@@ -22,7 +22,7 @@ float: left;
 }
 
 .jumbotron{ 
-background-image: url(../images/maxresdefault.jpg);
+background-image: url(../images/xmenposter.png);
 color: white;
 background-size: cover; 
 height: 325px;
