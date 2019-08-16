@@ -23,6 +23,16 @@ display: flex;
 flex-wrap: wrap;
 align-items: center;
 justify-content: center;
+position: absolute;
+}
+
+#gif_container { 
+position: relative; 
+height: 360px; 
+margin-left: 3%; 
+margin-right: 3%; 
+border: 3px solid white; 
+width: 90%; 
 }
 
 .jumbotron{ 
@@ -45,9 +55,10 @@ margin-right: 5%;
 }
 
 img{ 
-padding: 3%; 
+padding: 3%;  
 }
 
 p { 
     color: lightgrey;
+    text-align: center; 
 }
