@@ -12,22 +12,23 @@
 <body>
 <div class="jumbotron"></div>
 <row></row>
+<div id="instructions_container">
     <h3 class="display-3">X-Men GIFs</h3>
-    <h4>Instructions: Click an button below or create your own button by typing the name of the X-Men you want and clicking the submit button. Animate your GIFS by clicking once to play them and once to stop.
-        You can then click on the GIF itself to start the animation and click on the GIF again to stop the animation</h4>
+    <h4>Click an button below or create your own button by typing the name of the X-Men you want and clicking the submit button. Animate your GIFS by clicking once to play them and once to stop.
+        You can then click on the GIF itself to start the animation and click again to stop the animation.</h4>
     </h4>
+</div>
+<row></row>
   <form id="textForm">
-  Add supermodel name here:
   <br>
   <input type="text" id="enterText">
   <input type="button" value="submit" id="addenterText">
   </form>
-    <div id="buttonPopulate"></div>
-    <br>
-    <div id="gifPopulate"></div>
-    <br>
-    <br>
-    
+ <row></row>
+<div id="button_populate"></div>
+<row></row>
+ <div id="gifPopulate"></div>
+
     <script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
     <script type="text/javascript" src="assets/javascript/giphy.js"></script>
 </body>

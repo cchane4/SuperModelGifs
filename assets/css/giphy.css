@@ -1,24 +1,26 @@
-#textForm{ 
- /* float: right; */
- display: inline-block;
-position: relative;
-clear:both;
+form{ 
+ width: 100%; 
+ display: block; 
+ text-align: center;
+ margin-bottom: 1%;  
+}
+row { 
+    width: 100%
 }
 
-#buttonPopulate{ 
-float: left;
+#button_populate{
 display: flex;
-flex-wrap: wrap;   
-max-width: 600px;
-margin-bottom: 5px;
-/*clear:both;*/
+flex-wrap: wrap;
+margin-bottom: 3%; 
+align-items: center;
+justify-content: center; 
 } 
 
 #gifPopulate{ 
-display: block;
-position: relative; 
-clear:left;
-float: left;
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+justify-content: center;
 }
 
 .jumbotron{ 
@@ -26,8 +28,24 @@ background-image: url(../images/xmenposter.png);
 color: white;
 background-size: cover; 
 height: 325px;
+border: 2px solid lightgrey; 
 }
  
 body{ 
-background-color: white;
+background-color: black;
+}
+
+#instructions_container{ 
+color: white; 
+text-align: center; 
+margin-left: 5%; 
+margin-right: 5%;   
+}
+
+img{ 
+padding: 3%; 
+}
+
+p { 
+    color: lightgrey;
 }

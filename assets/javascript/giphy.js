@@ -3,14 +3,14 @@
 let topics = ['professor x', 'emma frost', 'wolverine', 'magneto', 'jean grey'];
 
 let create_buttons = () => {
-    $('#buttonPopulate').empty();
+    $('#button_populate').empty();
     for (let i = 0; i < topics.length; i++) {
         let buttons = $('<button>');
         buttons.addClass('build'); //added a class to the dynamically created button for animals
         buttons.attr('type', 'button'); //set the button type attribute
         buttons.attr('data-name', topics[i]); //added a data- attribute for items in array
         buttons.text(topics[i]);
-        $('#buttonPopulate').append(buttons);
+        $('#button_populate').append(buttons);
     }
 }
 
