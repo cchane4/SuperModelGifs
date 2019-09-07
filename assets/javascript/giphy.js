@@ -19,7 +19,7 @@ create_buttons();
 $(document).on('click', '.build', function() {
     $('#gifPopulate').empty();
     let e = $(this).data("name");
-    let queryURL = "http://api.giphy.com/v1/gifs/search?q=" + e + "&api_key=dc6zaTOxFJmzC&limit=10";
+    let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + e + "&api_key=dc6zaTOxFJmzC&limit=10";
     $.ajax({
             url: queryURL,
             method: 'GET'
